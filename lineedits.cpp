@@ -2,6 +2,8 @@
 #include <QLineEdit>
 #include <QGridLayout>
 #include <QLabel>
+#include <QRegExp>
+#include <QValidator>
 
 LineEdits::LineEdits(QWidget *parent) : QWidget(parent)
 {
@@ -12,10 +14,28 @@ LineEdits::LineEdits(QWidget *parent) : QWidget(parent)
     numOct = new QLineEdit();
     numDec = new QLineEdit();
     numBin = new QLineEdit();
+    numHex->setMaxLength(16);
+    numOct->setMaxLength(22);
+    numDec->setMaxLength(20);
+    numBin->setMaxLength(64);
     labelHex = new QLabel("Hex:");
     labelOct = new QLabel("Oct:");
     labelDec = new QLabel("Dec:");
     labelBin = new QLabel("Bin:");
+
+    // regexp
+    QRegExp rx_hex("[0-9a-fA-F]+");
+    QValidator *hex_validator = new QRegExpValidator(rx_hex, this);
+    numHex->setValidator(hex_validator);
+    QRegExp rx_dec("[0-9]+");
+    QValidator *dec_validator = new QRegExpValidator(rx_dec, this);
+    numDec->setValidator(dec_validator);
+    QRegExp rx_oct("[0-7]+");
+    QValidator *oct_validator = new QRegExpValidator(rx_oct, this);
+    numOct->setValidator(oct_validator);
+    QRegExp rx_bin("[0-1]+");
+    QValidator *bin_validator = new QRegExpValidator(rx_bin, this);
+    numBin->setValidator(bin_validator);
     mainLayout->addWidget(this->labelHex,0,0,1,1);
     mainLayout->addWidget(this->labelDec,1,0,1,1);
     mainLayout->addWidget(this->labelOct,2,0,1,1);
@@ -36,7 +56,7 @@ void LineEdits::update_display()
     QString str_dec = QString::number(this->int_num,10);
     QString str_oct = QString::number(this->int_num,8);
     QString str_bin = QString::number(this->int_num,2);
-    if(this->numHex->text()!=str_hex)
+    if(this->numHex->text()!=str_hex.toUpper())
         this->numHex->setText(str_hex);
     if(this->numDec->text()!=str_hex)
         this->numDec->setText(str_dec);
@@ -67,6 +87,7 @@ void LineEdits::hex_text_changed(QString str)
 {
     quint64 str_num;
     bool ok;
+    this->numHex->setText(str.toUpper());
     str_num = str.toULongLong(&ok,16);
     update_data(str_num);
 }

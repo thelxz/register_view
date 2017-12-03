@@ -33,7 +33,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = regbit1.0.0
-DISTDIR = /home/stor/code/regbit/.tmp/regbit1.0.0
+DISTDIR = /home/stor/code/register_view/.tmp/regbit1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-rpath,/home/stor/software/Qt5.6.3/5.6.3/gcc_64/lib
 LIBS          = $(SUBLIBS) -L/home/stor/software/Qt5.6.3/5.6.3/gcc_64/lib -lQt5Widgets -L/usr/lib64 -lQt5Gui -lQt5Core -lGL -lpthread 
@@ -653,7 +653,7 @@ moc_regbits.cpp: ../../software/Qt5.6.3/5.6.3/gcc_64/include/QtWidgets/QWidget \
 		../../software/Qt5.6.3/5.6.3/gcc_64/include/QtGui/qicon.h \
 		lineedits.h \
 		regbits.h
-	/home/stor/software/Qt5.6.3/5.6.3/gcc_64/bin/moc $(DEFINES) -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/mkspecs/linux-g++ -I/home/stor/code/regbit -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/include -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/include/QtWidgets -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/include/QtGui -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/include/QtCore regbits.h -o moc_regbits.cpp
+	/home/stor/software/Qt5.6.3/5.6.3/gcc_64/bin/moc $(DEFINES) -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/mkspecs/linux-g++ -I/home/stor/code/register_view -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/include -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/include/QtWidgets -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/include/QtGui -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/include/QtCore regbits.h -o moc_regbits.cpp
 
 moc_intbits.cpp: ../../software/Qt5.6.3/5.6.3/gcc_64/include/QtWidgets/QWidget \
 		../../software/Qt5.6.3/5.6.3/gcc_64/include/QtWidgets/qwidget.h \
@@ -765,7 +765,7 @@ moc_intbits.cpp: ../../software/Qt5.6.3/5.6.3/gcc_64/include/QtWidgets/QWidget \
 		../../software/Qt5.6.3/5.6.3/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../../software/Qt5.6.3/5.6.3/gcc_64/include/QtGui/qicon.h \
 		intbits.h
-	/home/stor/software/Qt5.6.3/5.6.3/gcc_64/bin/moc $(DEFINES) -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/mkspecs/linux-g++ -I/home/stor/code/regbit -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/include -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/include/QtWidgets -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/include/QtGui -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/include/QtCore intbits.h -o moc_intbits.cpp
+	/home/stor/software/Qt5.6.3/5.6.3/gcc_64/bin/moc $(DEFINES) -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/mkspecs/linux-g++ -I/home/stor/code/register_view -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/include -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/include/QtWidgets -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/include/QtGui -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/include/QtCore intbits.h -o moc_intbits.cpp
 
 moc_bitbutton.cpp: ../../software/Qt5.6.3/5.6.3/gcc_64/include/QtWidgets/QWidget \
 		../../software/Qt5.6.3/5.6.3/gcc_64/include/QtWidgets/qwidget.h \
@@ -876,7 +876,7 @@ moc_bitbutton.cpp: ../../software/Qt5.6.3/5.6.3/gcc_64/include/QtWidgets/QWidget
 		../../software/Qt5.6.3/5.6.3/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../../software/Qt5.6.3/5.6.3/gcc_64/include/QtGui/qicon.h \
 		bitbutton.h
-	/home/stor/software/Qt5.6.3/5.6.3/gcc_64/bin/moc $(DEFINES) -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/mkspecs/linux-g++ -I/home/stor/code/regbit -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/include -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/include/QtWidgets -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/include/QtGui -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/include/QtCore bitbutton.h -o moc_bitbutton.cpp
+	/home/stor/software/Qt5.6.3/5.6.3/gcc_64/bin/moc $(DEFINES) -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/mkspecs/linux-g++ -I/home/stor/code/register_view -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/include -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/include/QtWidgets -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/include/QtGui -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/include/QtCore bitbutton.h -o moc_bitbutton.cpp
 
 moc_lineedits.cpp: ../../software/Qt5.6.3/5.6.3/gcc_64/include/QtWidgets/QWidget \
 		../../software/Qt5.6.3/5.6.3/gcc_64/include/QtWidgets/qwidget.h \
@@ -983,7 +983,7 @@ moc_lineedits.cpp: ../../software/Qt5.6.3/5.6.3/gcc_64/include/QtWidgets/QWidget
 		../../software/Qt5.6.3/5.6.3/gcc_64/include/QtGui/qvector2d.h \
 		../../software/Qt5.6.3/5.6.3/gcc_64/include/QtGui/qtouchdevice.h \
 		lineedits.h
-	/home/stor/software/Qt5.6.3/5.6.3/gcc_64/bin/moc $(DEFINES) -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/mkspecs/linux-g++ -I/home/stor/code/regbit -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/include -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/include/QtWidgets -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/include/QtGui -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/include/QtCore lineedits.h -o moc_lineedits.cpp
+	/home/stor/software/Qt5.6.3/5.6.3/gcc_64/bin/moc $(DEFINES) -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/mkspecs/linux-g++ -I/home/stor/code/register_view -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/include -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/include/QtWidgets -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/include/QtGui -I/home/stor/software/Qt5.6.3/5.6.3/gcc_64/include/QtCore lineedits.h -o moc_lineedits.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
