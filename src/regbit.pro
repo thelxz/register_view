@@ -28,10 +28,12 @@ SOURCES += \
         regbits.cpp \
     intbits.cpp \
     bitbutton.cpp \
-    lineedits.cpp
+    lineedits.cpp \
+    bitoperate.cpp
 
 HEADERS += \
         regbits.h \
     intbits.h \
     bitbutton.h \
-    lineedits.h
+    lineedits.h \
+    bitoperate.h

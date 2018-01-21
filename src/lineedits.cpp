@@ -49,6 +49,7 @@ LineEdits::LineEdits(QWidget *parent) : QWidget(parent)
     connect(numDec,SIGNAL(textEdited(QString)),this,SLOT(dec_text_changed(QString)));
     connect(numOct,SIGNAL(textEdited(QString)),this,SLOT(oct_text_changed(QString)));
     connect(numBin,SIGNAL(textEdited(QString)),this,SLOT(bin_text_changed(QString)));
+    this->set_value(0);
 }
 void LineEdits::update_display()
 {

@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "intbits.h"
 #include "lineedits.h"
+#include "bitoperate.h"
 
 #define REG_BIT_NUM 64
 
@@ -17,6 +18,7 @@ public:
 private:
     Intbits * intbits;
     LineEdits * lineedits;
+    BitOperate * bit_operate;
     quint64  main_int;
 signals:
 public slots:
