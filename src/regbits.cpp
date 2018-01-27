@@ -14,7 +14,6 @@ Regbits::Regbits(QWidget *parent)
     intbits = new Intbits();
     lineedits = new LineEdits();
     bit_operate = new BitOperate();
-    //this->setFixedSize(800,200);
     QGridLayout *mainLayout = new QGridLayout;
     mainLayout->setSpacing(0);
     mainLayout->addWidget(intbits,0,0,1,4);
@@ -26,6 +25,8 @@ Regbits::Regbits(QWidget *parent)
     connect(this->lineedits,SIGNAL(value_changed(quint64)),this,SLOT(set_main_int(quint64)));
     connect(this->bit_operate,SIGNAL(value_changed(quint64)),this,SLOT(set_main_int(quint64)));
     this->set_main_int(0);
+    //this->setFixedSize(this->width(),this->height());
+    //this->setFixedSize(1200,150);
 }
 
 Regbits::~Regbits()

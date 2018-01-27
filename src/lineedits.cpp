@@ -4,6 +4,7 @@
 #include <QLabel>
 #include <QRegExp>
 #include <QValidator>
+#include "txtaddrsize.h"
 
 LineEdits::LineEdits(QWidget *parent) : QWidget(parent)
 {
@@ -14,6 +15,7 @@ LineEdits::LineEdits(QWidget *parent) : QWidget(parent)
     numOct = new QLineEdit();
     numDec = new QLineEdit();
     numBin = new QLineEdit();
+    txt_addr_size = new TxtAddrSize();
     numHex->setMaxLength(16);
     numOct->setMaxLength(22);
     numDec->setMaxLength(20);
@@ -22,6 +24,7 @@ LineEdits::LineEdits(QWidget *parent) : QWidget(parent)
     labelOct = new QLabel("Oct:");
     labelDec = new QLabel("Dec:");
     labelBin = new QLabel("Bin:");
+    labelAddrsize = new QLabel("Size:");
 
     // regexp
     QRegExp rx_hex("[0-9a-fA-F]+");
@@ -35,15 +38,18 @@ LineEdits::LineEdits(QWidget *parent) : QWidget(parent)
     numOct->setValidator(oct_validator);
     QRegExp rx_bin("[0-1]+");
     QValidator *bin_validator = new QRegExpValidator(rx_bin, this);
+
     numBin->setValidator(bin_validator);
     mainLayout->addWidget(this->labelHex,0,0,1,1);
     mainLayout->addWidget(this->labelDec,1,0,1,1);
     mainLayout->addWidget(this->labelOct,2,0,1,1);
     mainLayout->addWidget(this->labelBin,3,0,1,1);
+    mainLayout->addWidget(this->labelAddrsize,4,0,1,1);
     mainLayout->addWidget(this->numHex,0,1,1,5);
     mainLayout->addWidget(this->numDec,1,1,1,5);
     mainLayout->addWidget(this->numOct,2,1,1,5);
     mainLayout->addWidget(this->numBin,3,1,1,5);
+    mainLayout->addWidget(this->txt_addr_size,4,1,1,5);
     this->setLayout(mainLayout);
     connect(numHex,SIGNAL(textEdited(QString)),this,SLOT(hex_text_changed(QString)));
     connect(numDec,SIGNAL(textEdited(QString)),this,SLOT(dec_text_changed(QString)));

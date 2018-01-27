@@ -8,6 +8,7 @@ class BitButton : public QPushButton
     Q_OBJECT
 public:
     explicit  BitButton(QWidget *parent = 0);
+    void set_value(int input_value);
 signals:
     void bittoggled();
 public slots:

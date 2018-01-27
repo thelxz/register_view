@@ -53,10 +53,11 @@ int get_bit(quint64 int_num, int bit_num)
 
 void Intbits::update_display()
 {
+    int num_tmp;
     for (int i=0; i<REG_BIT_NUM ; i++)
     {
-        this->btn_bits[i]->setText(QString::number(get_bit(this->int_num,i)));
-        this->label_bits[i] = new QLabel(QString::number(REG_BIT_NUM-i-1,10));
+        num_tmp = get_bit(this->int_num,i);
+        this->btn_bits[i]->set_value(num_tmp);
     }
 }
 

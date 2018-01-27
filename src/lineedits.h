@@ -4,6 +4,7 @@
 #include <QWidget>
 class QLineEdit;
 class QLabel;
+class TxtAddrSize;
 
 class LineEdits : public QWidget
 {
@@ -21,10 +22,12 @@ private:
     QLineEdit * numDec;
     QLineEdit * numOct;
     QLineEdit * numBin;
+    TxtAddrSize * txt_addr_size;
     QLabel * labelHex;
     QLabel * labelDec;
     QLabel * labelOct;
     QLabel * labelBin;
+    QLabel * labelAddrsize;
 
 signals:
     void value_changed(quint64 num);

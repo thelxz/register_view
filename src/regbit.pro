@@ -29,11 +29,13 @@ SOURCES += \
     intbits.cpp \
     bitbutton.cpp \
     lineedits.cpp \
-    bitoperate.cpp
+    bitoperate.cpp \
+    txtaddrsize.cpp
 
 HEADERS += \
         regbits.h \
     intbits.h \
     bitbutton.h \
     lineedits.h \
-    bitoperate.h
+    bitoperate.h \
+    txtaddrsize.h
