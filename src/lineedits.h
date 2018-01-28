@@ -15,7 +15,9 @@ public:
     quint64 get_value();
 
 private:
+    //other widgets change the value, just update display
     void update_display();
+    //current widgets change the value, would send value_changed signal.
     void update_data(quint64 input_int);
     quint64 int_num;
     QLineEdit * numHex;
@@ -36,6 +38,8 @@ public slots:
     void dec_text_changed(QString str);
     void oct_text_changed(QString str);
     void bin_text_changed(QString str);
+    void txt_addr_size_changed(quint64 value);
+    void check_empty();
 
 };
 

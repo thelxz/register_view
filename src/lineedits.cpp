@@ -27,16 +27,16 @@ LineEdits::LineEdits(QWidget *parent) : QWidget(parent)
     labelAddrsize = new QLabel("Size:");
 
     // regexp
-    QRegExp rx_hex("[0-9a-fA-F]+");
+    QRegExp rx_hex("[0-9a-fA-F]*");
     QValidator *hex_validator = new QRegExpValidator(rx_hex, this);
     numHex->setValidator(hex_validator);
-    QRegExp rx_dec("[0-9]+");
+    QRegExp rx_dec("[0-9]*");
     QValidator *dec_validator = new QRegExpValidator(rx_dec, this);
     numDec->setValidator(dec_validator);
-    QRegExp rx_oct("[0-7]+");
+    QRegExp rx_oct("[0-7]*");
     QValidator *oct_validator = new QRegExpValidator(rx_oct, this);
     numOct->setValidator(oct_validator);
-    QRegExp rx_bin("[0-1]+");
+    QRegExp rx_bin("[0-1]*");
     QValidator *bin_validator = new QRegExpValidator(rx_bin, this);
 
     numBin->setValidator(bin_validator);
@@ -55,22 +55,33 @@ LineEdits::LineEdits(QWidget *parent) : QWidget(parent)
     connect(numDec,SIGNAL(textEdited(QString)),this,SLOT(dec_text_changed(QString)));
     connect(numOct,SIGNAL(textEdited(QString)),this,SLOT(oct_text_changed(QString)));
     connect(numBin,SIGNAL(textEdited(QString)),this,SLOT(bin_text_changed(QString)));
+    connect(txt_addr_size,SIGNAL(value_changed(quint64)),this,SLOT(txt_addr_size_changed(quint64)));
+
+    connect(numHex,SIGNAL(editingFinished()),this,SLOT(check_empty()));
+    connect(numDec,SIGNAL(editingFinished()),this,SLOT(check_empty()));
+    connect(numOct,SIGNAL(editingFinished()),this,SLOT(check_empty()));
+    connect(numBin,SIGNAL(editingFinished()),this,SLOT(check_empty()));
+    connect(txt_addr_size,SIGNAL(editingFinished()),this,SLOT(check_empty()));
+    this->check_empty();
     this->set_value(0);
 }
 void LineEdits::update_display()
 {
-    QString str_hex = QString::number(this->int_num,16);
+    QString str_hex = QString::number(this->int_num,16).toUpper();
     QString str_dec = QString::number(this->int_num,10);
     QString str_oct = QString::number(this->int_num,8);
     QString str_bin = QString::number(this->int_num,2);
-    if(this->numHex->text()!=str_hex.toUpper())
+    bool ok;
+    if(this->numHex->text().toULongLong(&ok,16) != this->int_num)
         this->numHex->setText(str_hex);
-    if(this->numDec->text()!=str_hex)
+    if(this->numDec->text().toULongLong(&ok,10) != this->int_num)
         this->numDec->setText(str_dec);
-    if(this->numOct->text()!=str_oct)
+    if(this->numOct->text().toULongLong(&ok,8) != this->int_num)
         this->numOct->setText(str_oct);
-    if(this->numBin->text()!=str_bin)
+    if(this->numBin->text().toULongLong(&ok,2) != this->int_num)
         this->numBin->setText(str_bin);
+    if(this->txt_addr_size->get_value() != this->int_num)
+        this->txt_addr_size->set_value(this->int_num);
 }
 void LineEdits::update_data(quint64 input_int)
 {
@@ -94,7 +105,6 @@ void LineEdits::hex_text_changed(QString str)
 {
     quint64 str_num;
     bool ok;
-    this->numHex->setText(str.toUpper());
     str_num = str.toULongLong(&ok,16);
     update_data(str_num);
 }
@@ -118,4 +128,20 @@ void LineEdits::bin_text_changed(QString str)
      bool ok;
      str_num = str.toULongLong(&ok,2);
      update_data(str_num);
+}
+void LineEdits::txt_addr_size_changed(quint64 value){
+     update_data(value);
+}
+
+void LineEdits::check_empty(){
+    if (this->numHex->text() == "")
+        numHex->setText("0");
+    if (this->numDec->text() == "")
+        numDec->setText("0");
+    if (this->numOct->text() == "")
+        numOct->setText("0");
+    if (this->numBin->text() == "")
+        numBin->setText("0");
+    if (this->txt_addr_size->text() == "")
+        txt_addr_size->set_value(0);
 }
