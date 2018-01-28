@@ -29,7 +29,7 @@ void TxtAddrSize::set_value(qint64 input_value){
     update_display();
 }
 
-qint64 TxtAddrSize::get_value(){
+quint64 TxtAddrSize::get_value(){
     return value;
 }
 

@@ -9,7 +9,7 @@ class TxtAddrSize : public QLineEdit
 public:
     TxtAddrSize(QWidget *parent = 0);
     void set_value(qint64 input_value);
-    qint64 get_value();
+    quint64 get_value();
 public slots:
     void txt_edit(QString str);
     void txt_check_vaild(QString str);
@@ -17,7 +17,7 @@ signals:
     //only emit this signal when value changed by GUI
     void value_changed(quint64 num);
 private:
-    qint64 	value;
+    quint64 	value;
     uint    count[7] = {0};
     QString unit[7] = {"B", "K", "M", "G", "T", "P", "E"};// "Z", "Y", "B"};
     void update_display();
