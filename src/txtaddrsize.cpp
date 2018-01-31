@@ -19,7 +19,7 @@ void TxtAddrSize::txt_edit(QString str){
 
 void TxtAddrSize::txt_check_vaild(QString str){
     if (!is_valid_str(str))
-        this->setStyleSheet("QLineEdit { background-color: red}");
+        this->setStyleSheet("QLineEdit { background-color: #FF8888 }");
     else
         this->setStyleSheet("");
 }

@@ -5,6 +5,7 @@
 BitButton::BitButton(QWidget *parent) : QPushButton(parent)
 {
     connect(this, SIGNAL(clicked()), this, SLOT(bitbtnclick()));
+    this->setFocusPolicy(Qt::NoFocus);
 }
 
 void BitButton::bitbtnclick()

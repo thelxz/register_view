@@ -48,6 +48,11 @@ BitOperate::BitOperate(QWidget *parent) : QWidget(parent)
     connect(btn_set,SIGNAL(clicked(bool)),this,SLOT(set_num()));
     connect(btn_shift_left,SIGNAL(clicked(bool)),this,SLOT(shift_left()));
     connect(btn_shift_right,SIGNAL(clicked(bool)),this,SLOT(shift_right()));
+    btn_clear->setFocusPolicy(Qt::NoFocus);
+    btn_reverse->setFocusPolicy(Qt::NoFocus);
+    btn_set->setFocusPolicy(Qt::NoFocus);
+    btn_shift_left->setFocusPolicy(Qt::NoFocus);
+    btn_shift_right->setFocusPolicy(Qt::NoFocus);
 }
 
 void BitOperate::set_value(quint64 input_num){

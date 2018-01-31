@@ -37,9 +37,10 @@ Intbits::Intbits(QWidget *parent) : QWidget(parent)
         bits_layout->addWidget(btn_bits[bit_count],row*2+1,column,1,1);
         connect(btn_bits[bit_count], SIGNAL(bittoggled()), this, SLOT(click_bits_btn()));
     }
-    this->set_value(0);
     mainLayout->addLayout(bits_layout,0,0,1,1);
     setLayout(mainLayout);
+    this->set_value(0);
+
 }
 
 int get_bit(quint64 int_num, int bit_num)
