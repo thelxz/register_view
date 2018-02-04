@@ -22,12 +22,12 @@ Intbits::Intbits(QWidget *parent) : QWidget(parent)
         label_bits[bit_count] = new QLabel(QString::number(bit_count));
         if (1 == (i/4)%2)
         {
-            pa_color.setColor(QPalette::WindowText,Qt::darkRed);
+            pa_color.setColor(QPalette::WindowText,Qt::red);
             label_bits[bit_count]->setPalette(pa_color);
         }
         else
         {
-            pa_color.setColor(QPalette::WindowText,Qt::darkGreen);
+            pa_color.setColor(QPalette::WindowText,Qt::blue);
             label_bits[bit_count]->setPalette(pa_color);
         }
         label_bits[bit_count]->setAlignment(Qt::AlignCenter);

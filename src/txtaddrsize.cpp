@@ -90,7 +90,15 @@ bool TxtAddrSize::is_valid_str(QString input_str){
             (rx.cap(4).toInt()>1023) ||
             (rx.cap(5).toInt()>1023) ||
             (rx.cap(6).toInt()>1023) ||
-            (rx.cap(7).toInt()>1023))
+            (rx.cap(7).toInt()>1023) ||
+            (rx.cap(1).length()>4)   ||
+            (rx.cap(2).length()>4)   ||
+            (rx.cap(3).length()>4)   ||
+            (rx.cap(4).length()>4)   ||
+            (rx.cap(5).length()>4)   ||
+            (rx.cap(6).length()>4)   ||
+            (rx.cap(7).length()>4)
+            )
             return false;
         else
             return true;
