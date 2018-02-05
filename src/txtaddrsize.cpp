@@ -62,14 +62,6 @@ quint64 TxtAddrSize::get_num_of_str(QString input_str){
     QString pattern("^(?:(\\d+)E)?(?:(\\d+)P)?(?:(\\d+)T)?(?:(\\d+)G)?(?:(\\d+)M)?(?:(\\d+)K)?(?:(\\d+)B)?$");
     QRegExp rx(pattern);
     rx.exactMatch(input_str.toUpper());
-    qDebug() << input_str;
-    qDebug() << rx.cap(1).toULongLong();
-    qDebug() << rx.cap(2).toULongLong();
-    qDebug() << rx.cap(3).toULongLong();
-    qDebug() << rx.cap(4).toULongLong();
-    qDebug() << rx.cap(5).toULongLong();
-    qDebug() << rx.cap(6).toULongLong();
-    qDebug() << rx.cap(7).toULongLong();
     tmp_num =   ( rx.cap(1).toULongLong() << 60 ) +
                 ( rx.cap(2).toULongLong() << 50 ) +
                 ( rx.cap(3).toULongLong() << 40 ) +
